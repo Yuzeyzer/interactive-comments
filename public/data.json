@@ -1,0 +1,164 @@
+{
+  "currentUser": {
+    "image": {
+      "png": "./images/avatars/image-juliusomo.png",
+      "webp": "./images/avatars/image-juliusomo.webp"
+    },
+    "username": "Марлен",
+    "id": "34jjj423fff2343fg"
+  },
+  "comments": [
+    {
+      "content": "dasdasd",
+      "createdAt": "2021-12-19T16:23:37.060Z",
+      "score": 0,
+      "user": {
+        "image": {
+          "png": "./images/avatars/image-juliusomo.png",
+          "webp": "./images/avatars/image-juliusomo.webp"
+        },
+        "username": "Марлен",
+        "id": "34jjj423fff2343fg"
+      },
+      "replies": [
+        {
+          "id": 3,
+          "content": "If you're still new, I'd recommend focusing on the fundamentals of HTML, CSS, and JS before considering React. It's very tempting to jump ahead but lay a solid foundation first.",
+          "createdAt": "2021-12-19T02:55:50.235Z",
+          "score": 4,
+          "replyingTo": "maxblagun",
+          "user": {
+            "image": {
+              "png": "./images/avatars/image-ramsesmiron.png",
+              "webp": "./images/avatars/image-ramsesmiron.webp"
+            },
+            "username": "ramsesmiron"
+          }
+        },
+        {
+          "id": 4,
+          "content": "I couldn't agree more with this. Everything moves so fast and it always seems like everyone knows the newest library/framework. But the fundamentals are what stay constant.",
+          "createdAt": "2021-12-19T02:55:50.235Z",
+          "score": 2,
+          "replyingTo": "ramsesmiron",
+          "user": {
+            "image": {
+              "png": "./images/avatars/image-juliusomo.png",
+              "webp": "./images/avatars/image-juliusomo.webp"
+            },
+            "username": "juliusomo"
+          }
+        },
+        {
+          "content": "Ты что такое пишешь?",
+          "createdAt": "2021-12-19T16:27:35.132Z",
+          "score": 0,
+          "user": {
+            "image": {
+              "png": "./images/avatars/image-juliusomo.png",
+              "webp": "./images/avatars/image-juliusomo.webp"
+            },
+            "username": "Марлен",
+            "id": "34jjj423fff2343fg"
+          },
+          "replies": []
+        },
+        {
+          "content": "И что это за бред???",
+          "createdAt": "2021-12-19T16:30:03.588Z",
+          "score": 0,
+          "user": {
+            "image": {
+              "png": "./images/avatars/image-juliusomo.png",
+              "webp": "./images/avatars/image-juliusomo.webp"
+            },
+            "username": "Марлен",
+            "id": "34jjj423fff2343fg"
+          },
+          "replies": []
+        }
+      ],
+      "id": 1
+    },
+    {
+      "content": "Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные\n\tтексты. Маленький курсивных, меня, одна что заглавных безорфографичный,\n\tпредложения города жизни моей своих проектах продолжил залетают рекламных! Они\n\tвозвращайся взгляд гор!",
+      "createdAt": "2021-12-19T02:57:24.124Z",
+      "score": [
+        "34jjj423fff2343fg"
+      ],
+      "user": {
+        "image": {
+          "png": "./images/avatars/image-juliusomo.png",
+          "webp": "./images/avatars/image-juliusomo.webp"
+        },
+        "username": "Марлен"
+      },
+      "replies": [],
+      "id": 2
+    },
+    {
+      "content": "Остроумная шутка в нужный момент может заработать много голосов. Особенно, если вам удастся взломать шутку с одним из поддредитов с большим объемом трафика, например / AskReddit.",
+      "createdAt": "2021-12-19T03:19:16.287Z",
+      "score": [
+        "34jjj423fff2343fg"
+      ],
+      "user": {
+        "image": {
+          "png": "./images/avatars/image-juliusomo.png",
+          "webp": "./images/avatars/image-juliusomo.webp"
+        },
+        "username": "Марлен",
+        "id": "34jjj423fff2343fg"
+      },
+      "replies": [],
+      "id": 3
+    },
+    {
+      "content": "Американский боксер, чемпион Олимпийских игр 1960 года Мохаммед Али (настоящее имя — Кассиус Марцеллиус Клей) родился 17 января 1942 года в Луисвилле (штат Кентукки, США). Боксом начал заниматься с раннего детства. В 1959 году попал в Олимпийскую сборную США.",
+      "createdAt": "2021-12-19T14:59:05.794Z",
+      "score": [
+        "34jjj423fff2343fg"
+      ],
+      "user": {
+        "image": {
+          "png": "./images/avatars/image-juliusomo.png",
+          "webp": "./images/avatars/image-juliusomo.webp"
+        },
+        "username": "Марлен",
+        "id": "34jjj423fff2343fg"
+      },
+      "replies": [],
+      "id": 4
+    },
+    {
+      "content": "Привет всем Апельсинам! Сегодня мы закончили очередную страницу! Ураа!",
+      "createdAt": "2021-12-21T12:23:34.212Z",
+      "score": 0,
+      "user": {
+        "image": {
+          "png": "./images/avatars/image-juliusomo.png",
+          "webp": "./images/avatars/image-juliusomo.webp"
+        },
+        "username": "Марлен",
+        "id": "34jjj423fff2343fg"
+      },
+      "replies": [
+        {
+          "content": "Неплохо! Молодцы!",
+          "createdAt": "2021-12-21T12:23:59.262Z",
+          "score": 0,
+          "user": {
+            "image": {
+              "png": "./images/avatars/image-juliusomo.png",
+              "webp": "./images/avatars/image-juliusomo.webp"
+            },
+            "username": "Марлен",
+            "id": "34jjj423fff2343fg"
+          },
+          "replies": []
+        }
+      ],
+      "id": 5
+    }
+  ]
+}
