@@ -43,7 +43,7 @@
 					</div>
 				</div>
 				<div
-					@click="showReplyComment = !showReplyComment"
+					@click="handleReplyComment"
 					class="comment__reply"
 					:class="{ comment__reply_active: showReplyComment }"
 				>
@@ -66,7 +66,7 @@
 		</div>
 	</div>
 	<div v-if="showReplyComment" class="comment-reply">
-		<CreateComment :author="author" :isReplying="true" :comment="comment"/>
+		<CreateComment :author="author" :isReplying="true" :comment="comment" />
 	</div>
 	<div class="comment-replies">
 		<ReplyComment
@@ -74,6 +74,7 @@
 			:key="reply.id"
 			:comment="reply"
 			:author="author"
+			:parentCommentId="parentCommentId"
 		/>
 	</div>
 </template>
@@ -83,41 +84,35 @@ import moment from "moment";
 import CreateComment from "./CreateComment.vue";
 import ReplyComment from "./Reply.vue";
 import { ref } from "@vue/reactivity";
+import { useStore } from "vuex";
 export default {
 	props: ["comment", "author"],
 	components: { CreateComment, ReplyComment },
-	setup(props, context) {
+	setup(props) {
 		moment.locale("ru");
 		const showReplyComment = ref(false);
+		const store = useStore();
+		const parentCommentId = ref(props.comment.id);
+
+		const handleReplyComment = () => {
+			showReplyComment.value = !showReplyComment.value;
+		};
 
 		const handleAddLike = async () => {
-			context.emit("handleChangeLike", props.comment.id);
-			await fetch("http://localhost:3000/comments/" + props.comment.id, {
-				method: "PATCH",
-				body: JSON.stringify({ score: [props.author.id] }),
-				headers: { "Content-Type": "application/json" },
-			});
+			store.dispatch("addLikeToComment", props.comment.id);
 		};
 
 		const handleDeleteLike = async () => {
-			context.emit("handleChangeDeleteLike", props.comment.id);
-			const newLikes = props.comment.score.filter(
-				(id) => id !== props.author.id
-			);
-			await fetch("http://localhost:3000/comments/" + props.comment.id, {
-				method: "PATCH",
-				body: JSON.stringify({ score: newLikes }),
-				headers: { "Content-Type": "application/json" },
-			});
+			store.dispatch("deleteLikeFromComment", props.comment.id);
 		};
-
-		const handleRepy = () => {};
 
 		return {
 			moment,
 			handleAddLike,
 			handleDeleteLike,
 			showReplyComment,
+			handleReplyComment,
+			parentCommentId,
 		};
 	},
 };

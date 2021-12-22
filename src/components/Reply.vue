@@ -74,35 +74,28 @@
 import moment from "moment";
 import CreateComment from "./CreateComment.vue";
 import { ref } from "@vue/reactivity";
+import { useStore } from "vuex";
 export default {
-	props: ["comment", "author"],
+	props: ["comment", "author", "parentCommentId"],
 	components: { CreateComment },
 	setup(props, context) {
 		moment.locale("ru");
 		const showReplyComment = ref(false);
+		const store = useStore();
 
 		const handleAddLike = async () => {
-			context.emit("handleChangeLike", props.comment.id);
-			await fetch("http://localhost:3000/comments/" + props.comment.id, {
-				method: "PATCH",
-				body: JSON.stringify({ score: [props.author.id] }),
-				headers: { "Content-Type": "application/json" },
+			store.dispatch("addLikeToReplyComment", {
+				parentId: props.parentCommentId,
+				replyId: props.comment.id,
 			});
 		};
 
 		const handleDeleteLike = async () => {
-			context.emit("handleChangeDeleteLike", props.comment.id);
-			const newLikes = props.comment.score.filter(
-				(id) => id !== props.author.id
-			);
-			await fetch("http://localhost:3000/comments/" + props.comment.id, {
-				method: "PATCH",
-				body: JSON.stringify({ score: newLikes }),
-				headers: { "Content-Type": "application/json" },
+			store.dispatch("deleteLikeFromReplyComment", {
+				parentId: props.parentCommentId,
+				replyId: props.comment.id,
 			});
 		};
-
-		const handleRepy = () => {};
 
 		return {
 			moment,

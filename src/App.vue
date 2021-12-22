@@ -4,52 +4,30 @@
 		v-for="comment in comments"
 		:key="comment.id"
 		:comment="comment"
-		@handleChangeLike="handleDetectLikeAdd"
-		@handleChangeDeleteLike="handleDetectDeleteLikeAdd"
 	/>
 	<CreateComment :author="author" />
 </template>
 
 <script>
-import { ref } from "@vue/reactivity";
+import { computed, ref } from "@vue/reactivity";
 import Comment from "./components/Comment.vue";
 import CreateComment from "./components/CreateComment.vue";
 import { onMounted } from "@vue/runtime-core";
+import { useStore } from "vuex";
 export default {
 	name: "App",
 	components: { Comment, CreateComment },
 	setup() {
-		const comments = ref([]);
-		const author = ref(null);
-
-		const getComments = async () => {
-			const response = await fetch("http://localhost:3000/comments");
-			const json = await response.json();
-			comments.value = json;
-		};
-
-		const getAuthor = async () => {
-			const response = await fetch("http://localhost:3000/currentUser");
-			const json = await response.json();
-			author.value = json;
-		};
-
-		const handleDetectLikeAdd = (id) => {
-			const comment = comments.value.find((comment) => comment.id === id);
-			comment.score = [...comment.score, author.value.id];
-		};
-
-		const handleDetectDeleteLikeAdd = (id) => {
-			const comment = comments.value.find((comment) => comment.id === id);
-			comment.score = comment.score.filter(likeId => likeId !== author.value.id)
-		};
+		const store = useStore();
+		const comments = computed(() => store.state.comments);
+		const author = computed(() => store.state.currentUser);
 
 		onMounted(() => {
-			getComments();
-			getAuthor();
+			store.dispatch("getComments");
+			store.dispatch("getUser");
 		});
 
-		return { comments, author, handleDetectLikeAdd,handleDetectDeleteLikeAdd };
+		return { comments, author };
 	},
 };
 </script>

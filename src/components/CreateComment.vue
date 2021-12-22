@@ -13,38 +13,32 @@
 
 <script>
 import { ref } from "@vue/reactivity";
+import { useStore } from "vuex";
 export default {
 	props: ["author", "isReplying", "comment"],
 	setup(props) {
 		const desctiption = ref("");
+		const store = useStore();
 
 		const handleSubmit = async () => {
 			const newComment = {
 				content: desctiption.value,
 				createdAt: new Date(),
-				score: 0,
+				score: [],
 				user: props.author,
 				replies: [],
 			};
 
 			if (props.isReplying) {
-				const currentComment = props.comment;
-				await fetch("http://localhost:3000/comments/" + props.comment.id, {
-					method: "PATCH",
-					body: JSON.stringify({
-						...currentComment,
-						replies: [...currentComment.replies, newComment],
-					}),
-					headers: { "Content-Type": "application/json" },
+				delete newComment.replies
+				store.dispatch("creaReplyComment", {
+					newComment,
+					id: props.comment.id,
 				});
-				return;
 			}
-
-			await fetch("http://localhost:3000/comments", {
-				method: "POST",
-				body: JSON.stringify(newComment),
-				headers: { "Content-Type": "application/json" },
-			});
+			if (!props.isReplying) {
+				store.dispatch("createComment", newComment);
+			}
 		};
 
 		return { desctiption, handleSubmit };
