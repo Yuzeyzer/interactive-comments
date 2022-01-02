@@ -5,8 +5,8 @@
 			<div class="create-comment__description">
 				<textarea class="create-comment__text" v-model="desctiption"></textarea>
 			</div>
-			<button v-if="isReplying" class="btn-primary">REPLY</button>
-			<button v-else class="btn-primary">SEND</button>
+			<Button v-if="isReplying" text="REPLY" />
+			<Button v-else text="SEND" />
 		</form>
 	</div>
 </template>
@@ -14,9 +14,11 @@
 <script>
 import { ref } from "@vue/reactivity";
 import { useStore } from "vuex";
+import Button from "./UI/Button.vue";
 export default {
-	props: ["author", "isReplying", "comment"],
-	setup(props) {
+	props: ["author", "isReplying", "comment", "parentCommentId"],
+	components: { Button },
+	setup(props,context) {
 		const desctiption = ref("");
 		const store = useStore();
 
@@ -27,18 +29,21 @@ export default {
 				score: [],
 				user: props.author,
 				replies: [],
+				relatedTo: props.comment?.user.username,
 			};
 
 			if (props.isReplying) {
-				delete newComment.replies
-				store.dispatch("creaReplyComment", {
+				delete newComment.replies;
+				store.dispatch("createReplyComment", {
 					newComment,
-					id: props.comment.id,
+					id: props.parentCommentId,
 				});
 			}
 			if (!props.isReplying) {
 				store.dispatch("createComment", newComment);
 			}
+			desctiption.value = "";
+			context.emit('closeReply')
 		};
 
 		return { desctiption, handleSubmit };

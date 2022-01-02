@@ -9,66 +9,71 @@
   },
   "comments": [
     {
-      "content": "Привет всем! ",
+      "id": 1,
+      "content": "Impressive! Though it seems the drag feature could be improved. But overall it looks incredible. You've nailed the design and the responsiveness at various breakpoints works really well.",
       "createdAt": "2021-12-21T18:59:40.678Z",
       "score": [
         "34jjj423fff2343fg"
       ],
       "user": {
         "image": {
-          "png": "./images/avatars/image-juliusomo.png",
-          "webp": "./images/avatars/image-juliusomo.webp"
+          "png": "./images/avatars/image-amyrobson.png",
+          "webp": "./images/avatars/image-amyrobson.webp"
         },
-        "username": "Марлен",
-        "id": "34jjj423fff2343fg"
+        "username": "amyrobson",
+        "id": 1
+      },
+      "replies": []
+    },
+    {
+      "id": 2,
+      "content": "Woah, your project looks awesome! How long have you been coding for? I'm still new, but think I want to dive into React as well soon. Perhaps you can give me an insight on where I can learn React? Thanks!",
+      "createdAt": "2021-12-21T18:59:40.678Z",
+      "score": [
+        "34jjj423fff2343fg"
+      ],
+      "user": {
+        "image": {
+          "png": "./images/avatars/image-maxblagun.png",
+          "webp": "./images/avatars/image-maxblagun.webp"
+        },
+        "username": "maxblagun",
+        "id": 2
       },
       "replies": [
         {
-          "content": "Хей и Хай!",
-          "createdAt": "2021-12-21T19:52:53.186Z",
+          "id": 3,
+          "content": "If you're still new, I'd recommend focusing on the fundamentals of HTML, CSS, and JS before considering React. It's very tempting to jump ahead but lay a solid foundation first.",
+          "createdAt": "2021-12-21T18:59:40.678Z",
+          "score": [
+            "34jjj423fff2343fg"
+          ],
+          "replyingTo": "maxblagun",
+          "user": {
+            "image": {
+              "png": "./images/avatars/image-ramsesmiron.png",
+              "webp": "./images/avatars/image-ramsesmiron.webp"
+            },
+            "username": "ramsesmiron",
+            "id": 3
+          }
+        },
+        {
+          "id": 4,
+          "content": "I couldn't agree more with this. Everything moves so fast and it always seems like everyone knows the newest library/framework. But the fundamentals are what stay constant.",
+          "createdAt": "2021-12-21T18:59:40.678Z",
           "score": [],
+          "replyingTo": "ramsesmiron",
           "user": {
             "image": {
               "png": "./images/avatars/image-juliusomo.png",
               "webp": "./images/avatars/image-juliusomo.webp"
             },
-            "username": "Марлен",
-            "id": "34jjj423fff2343fg"
-          },
-          "id": "2191ac94-e4cc-48e0-8555-925a59b0086a"
+            "username": "juliusomo",
+            "id": 4
+          }
         }
-      ],
-      "id": 1
-    },
-    {
-      "content": "Наконец - то мы добились своего! Потратили целых два часа(((. Я устал и хочу спать, завтра вылетаем в Бишкек. До встречи уже в Бишкеке!",
-      "createdAt": "2021-12-21T19:50:56.178Z",
-      "score": [],
-      "user": {
-        "image": {
-          "png": "./images/avatars/image-juliusomo.png",
-          "webp": "./images/avatars/image-juliusomo.webp"
-        },
-        "username": "Марлен",
-        "id": "34jjj423fff2343fg"
-      },
-      "replies": [],
-      "id": 2
-    },
-    {
-      "content": "Слава Украине!",
-      "createdAt": "2021-12-21T19:53:30.792Z",
-      "score": [],
-      "user": {
-        "image": {
-          "png": "./images/avatars/image-juliusomo.png",
-          "webp": "./images/avatars/image-juliusomo.webp"
-        },
-        "username": "Марлен",
-        "id": "34jjj423fff2343fg"
-      },
-      "replies": [],
-      "id": 3
+      ]
     }
   ]
 }
