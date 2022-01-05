@@ -3,7 +3,7 @@
 		<form @submit.prevent="handleSubmit" class="create-comment__form">
 			<img class="create-comment__image" :src="author.image.png" alt="" />
 			<div class="create-comment__description">
-				<textarea class="create-comment__text" v-model="desctiption"></textarea>
+				<Textarea :value="description" @setValue="description = $event"/>
 			</div>
 			<Button v-if="isReplying" text="REPLY" />
 			<Button v-else text="SEND" />
@@ -14,17 +14,17 @@
 <script>
 import { ref } from "@vue/reactivity";
 import { useStore } from "vuex";
-import Button from "./UI/Button.vue";
+import { Button, Textarea } from "./UI";
 export default {
 	props: ["author", "isReplying", "comment", "parentCommentId"],
-	components: { Button },
-	setup(props,context) {
-		const desctiption = ref("");
+	components: { Button, Textarea },
+	setup(props, context) {
+		const description = ref("");
 		const store = useStore();
 
 		const handleSubmit = async () => {
 			const newComment = {
-				content: desctiption.value,
+				content: description.value,
 				createdAt: new Date(),
 				score: [],
 				user: props.author,
@@ -42,18 +42,17 @@ export default {
 			if (!props.isReplying) {
 				store.dispatch("createComment", newComment);
 			}
-			desctiption.value = "";
-			context.emit('closeReply')
+			description.value = "";
+			context.emit("closeReply");
 		};
 
-		return { desctiption, handleSubmit };
+		return { description, handleSubmit };
 	},
 };
 </script>
 
 <style lang="scss">
 @import "@/assets/scss/variables.scss";
-@import "@/assets/scss/buttons.scss";
 .create-comment {
 	background-color: #fff;
 	padding: 25px;
@@ -71,19 +70,6 @@ export default {
 	&__description {
 		width: 100%;
 		margin: 0 20px;
-	}
-	&__text {
-		font-family: "Rubik", sans-serif;
-		resize: none;
-		width: 100%;
-		height: 90px;
-		box-sizing: border-box;
-		padding: 15px 25px;
-		line-height: 1.5;
-		font-weight: 400;
-		color: $dark-blue;
-		border-radius: 5px;
-		border: 1px solid $dark-blue;
 	}
 }
 </style>

@@ -46,6 +46,10 @@ export default createStore({
     DELETE_REPLY_COMMENT(state, { parentComment, newReplies }) {
       parentComment.replies = newReplies;
     },
+    EDIT_COMMENT(state, { id, content }) {
+      const currentComment = state.comments.find((comemnt) => comemnt.id === id);
+      currentComment.content = content;
+    },
   },
   actions: {
     async getComments({ commit }) {
@@ -92,8 +96,6 @@ export default createStore({
     },
     async createReplyComment({ commit, getters }, { newComment, id }) {
       const currentComment = getters.getCurrentComment(id);
-
-      console.log(currentComment);
 
       const newReplyComment = { ...newComment, id: uuidv4() };
 
@@ -154,6 +156,17 @@ export default createStore({
         headers: { 'Content-Type': 'application/json' },
       });
       commit('DELETE_REPLY_COMMENT', { parentComment, newReplies });
+    },
+    async editComment({ commit }, { id, content }) {
+      await fetch('http://localhost:3000/comments/' + id, {
+        method: 'PATCH',
+        body: JSON.stringify({
+          content,
+        }),
+        headers: { 'Content-Type': 'application/json' },
+      });
+
+      commit('EDIT_COMMENT', { id, content });
     },
   },
 });

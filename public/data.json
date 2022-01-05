@@ -62,7 +62,9 @@
           "id": 4,
           "content": "I couldn't agree more with this. Everything moves so fast and it always seems like everyone knows the newest library/framework. But the fundamentals are what stay constant.",
           "createdAt": "2021-12-21T18:59:40.678Z",
-          "score": [],
+          "score": [
+            "34jjj423fff2343fg"
+          ],
           "replyingTo": "ramsesmiron",
           "user": {
             "image": {
@@ -74,6 +76,21 @@
           }
         }
       ]
+    },
+    {
+      "content": "Привет Марлен, как дела? Когда свадьба? Че когда на шашлыки?",
+      "createdAt": "2022-01-05T23:25:46.319Z",
+      "score": [],
+      "user": {
+        "image": {
+          "png": "./images/avatars/image-juliusomo.png",
+          "webp": "./images/avatars/image-juliusomo.webp"
+        },
+        "username": "Марлен",
+        "id": "34jjj423fff2343fg"
+      },
+      "replies": [],
+      "id": 3
     }
   ]
 }

@@ -10,7 +10,7 @@
 
 <script>
 import { computed, ref } from "@vue/reactivity";
-import Comment from "./components/Comment.vue";
+import Comment from "./components/Comment/Comment.vue";
 import CreateComment from "./components/CreateComment.vue";
 import { onMounted } from "@vue/runtime-core";
 import { useStore } from "vuex";
